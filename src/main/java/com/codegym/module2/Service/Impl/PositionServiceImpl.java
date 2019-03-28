@@ -20,7 +20,4 @@ public class PositionServiceImpl implements PositionService {
     public Position findByid(int id) {
         return positionRepository.findById(id).get();
     }
-
-
-
 }

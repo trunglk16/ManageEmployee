@@ -87,7 +87,6 @@ public class EmployeeController {
         if (employee != null) {
             ModelAndView modelAndView = new ModelAndView("/views/view");
             modelAndView.addObject("employee", employee);
-
             return modelAndView;
         } else {
             ModelAndView modelAndView = new ModelAndView("/views/error.404");
@@ -111,10 +110,5 @@ public class EmployeeController {
         ModelAndView modelAndView = new ModelAndView("/views/error.404)");
         return modelAndView;
     }
-//
-//    @GetMapping("/api/book")
-//    public ResponseEntity<List<Employee>> list(){
-//        List<Employee> list = employeeService.list();
-//        return ResponseEntity.ok().body(list);
-//    }
+
 }

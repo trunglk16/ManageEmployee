@@ -17,7 +17,6 @@ public class GenderFormatter  implements Formatter<Gender> {
         this.genderService = genderService;
     }
 
-
     @Override
     public Gender parse(String text, Locale locale) throws ParseException {
         return genderService.findByid(Integer.parseInt(text));

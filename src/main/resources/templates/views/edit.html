@@ -8,8 +8,6 @@
 
 </head>
 <body>
-
-
 <header id="header-id">
     <h1 style="margin: 0">Hotel Manager</h1>
 </header>
@@ -19,7 +17,6 @@
         <form th:action="@{/edit-employee}" th:object="${employee}" method="post">
             <input th:type="hidden" name="id" th:field="*{id}">
             <table>
-
                 <tr>Mã nhân viên:</tr>
                 <br>
                 <tr><input type="text" th:field="*{ind}"/></tr>
@@ -69,7 +66,6 @@
                 <br>
                 <tr><input type="text" th:field="*{address}"/></tr>
                 <tr th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></tr>
-
                 <tr>
                     <td><input type="submit" value="Cập nhật"></td>
                 </tr>

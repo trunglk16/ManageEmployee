@@ -5,10 +5,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
-
 
 <header id="header-id">
     <h1 style="margin: 0">Hotel Manager</h1>
@@ -16,19 +14,15 @@
 <div class="body">
     <div class="main">
         <a th:href="@{/create-employee}">Thêm mới</a>
-
         <form >
             <input name="s" type="text" placeholder="Bạn muốn tìm kiếm thứ gì?"/>
             <button type="submit" value="Tìm">Tìm</button>
-
         </form>
         <br/>
         <th:block th:if=${message}>
             <p th:text="${message}"></p>
         </th:block>
-
         <h2>Danh sách nhân viên</h2>
-
         <table class="table" border="1">
             <tr>
                 <th>Mã nhân viên</th>
@@ -48,12 +42,10 @@
                     <td><a th:href="@{/edit-employee/__${p.id}__}">Edit</a>/<a th:href="@{/delete-employee/__${p.id}__}"
                                                                              onclick=" return confirm('Bạn có thực sự muỗn xóa?');">Delete</a>
                     </td>
-
                 </tr>
             </th:block>
 
         </table>
-
         <div class="pagination-div">
              <span th:if="${employee.hasPrevious()}">
                  <a th:href="@{/(s=${search},page=${employee.number - 1},size=${employee.size})}">Previous</a>

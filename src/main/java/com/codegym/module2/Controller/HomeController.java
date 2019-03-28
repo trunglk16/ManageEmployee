@@ -21,7 +21,6 @@ public class HomeController {
     public ModelAndView list(@RequestParam("s") Optional<String> s, Pageable pageable) {
         Page<Employee> employee;
         ModelAndView modelAndView = new ModelAndView("/views/index");
-
         if (s.isPresent()) {
             employee = employeeSerivce.findAllByNameContainingOrIndContaining(s.get(), s.get(), new PageRequest(pageable.getPageNumber(), 5));
             modelAndView.addObject("search", s.get());
@@ -29,7 +28,6 @@ public class HomeController {
             employee = printPage(pageable);
             modelAndView.addObject("search", "");
         }
-
         modelAndView.addObject("employee", employee);
         return modelAndView;
     }
