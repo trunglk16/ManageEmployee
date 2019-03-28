@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+<header id="header-id">
+    <h1 style="margin: 0">Hotel Manager</h1>
+</header>
+<div class="body">
+    <div class="main">
+        <a th:href="@{/}">Trở về trang chính</a>
+        <h3>Thêm mới nhân viên</h3>
+        <form class="create" th:action="@{/create-employee}" th:object="${employee}" method="post">
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+
+                <tr>Mã nhân viên:</tr>
+                <br>
+                <tr><input type="text" th:field="*{ind}"/></tr>
+                <tr th:if="${#fields.hasErrors('ind')}" th:errors="*{ind}"></tr>
+                <br>
+                <tr>Vị trí</tr>
+                <br>
+                <tr>
+                    <select th:field="*{position}">
+                        <option th:each="t : ${position}" th:value="${t.id}" th:text="${t.position}"></option>
+                    </select>
+                </tr>
+                <br>
+                <tr>Họ tên:</tr>
+                <br>
+                <tr><input type="text" th:field="*{name}"/></tr>
+                <tr th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></tr>
+                <br>
+                <tr>Ngày sinh:</tr>
+                <br>
+                <tr><input type="date" th:field="*{birthday}"/></tr>
+                <tr th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></tr>
+                <br>
+                <tr>Giới tính:</tr>
+                <br>
+                <select th:field="*{gender}">
+                    <option th:each="t : ${gender}" th:value="${t.id}" th:text="${t.gender}"></option>
+                </select>
+                <tr th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></tr>
+                <br>
+                <tr>Số điện thoại:</tr>
+                <br>
+                <tr><input type="number" th:field="*{phone}"/></tr>
+                <tr th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></tr>
+                <br>
+                <tr>Số CMND</tr>
+                <br>
+                <tr><input type="number" th:field="*{cmt}"/></tr>
+                <tr th:if="${#fields.hasErrors('cmt')}" th:errors="*{cmt}"></tr>
+                <br>
+                <tr>Email:</tr>
+                <br>
+                <tr><input type="text" th:field="*{email}"/></tr>
+                <tr th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></tr>
+                <br>
+                <tr>Địa chỉ:</tr>
+                <br>
+                <tr><input type="text" th:field="*{address}"/></tr>
+                <tr th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></tr>
+
+                <tr>
+                    <td><input type="submit" value="Thêm"></td>
+                </tr>
+            </table>
+    </div>
+
+    <footer id="footer-id">
+        <div class="contact">
+            <a href="https://www.facebook.com/trungnguyenlk16" class="fa fa-facebook contact-box"></a>
+            <a href="https://github.com/trunglk16" class="fa fa-github contact-box"></a>
+            <a href="https://plus.google.com/+TrungNguy%E1%BB%85nLk16"
+               class="fa fa-google-plus contact-box"></a>
+            <a href="https://www.linkedin.com/in/trung-nguyen-50533b163/"
+               class="fa fa-linkedin contact-box"></a>
+        </div>
+        <p>Project by &copy;<a href="">TrungNT</a></p>
+    </footer>
+
+</body>
+</html>

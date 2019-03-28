@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+<header id="header-id">
+    <h1 style="margin: 0">Hotel Manager</h1>
+</header>
+<div class="body">
+    <div class="main">
+        <a th:href="@{/}">Về trang chủ</a>
+
+        <form class="example">
+            <input name="s" type="text" placeholder="Bạn muốn tìm kiếm thứ gì?"/>
+            <input type="submit" value="Tìm">
+        </form>
+        <br/>
+        <th:block th:if=${message}>
+            <p th:text="${message}"></p>
+        </th:block>
+
+        <h2>Thông tin nhân viên</h2>
+
+        <table class="table" border="1">
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Nhóm nhân viên</th>
+                <th>Họ tên</th>
+                <th>Giới tính</th>
+                <th>Email</th>
+                <th>Số CMND</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+
+            </tr>
+            <th:block >
+                <tr>
+                    <td th:text="${employee.ind}"></td>
+                    <td th:text="${employee.Position.position}"></td>
+                    <td th:text="${employee.name}"</td>
+                    <td th:text="${employee.Gender.gender}"</td>
+                    <td th:text="${employee.email}"</td>
+                    <td th:text="${employee.cmt}"</td>
+                    <td th:text="${employee.address}"</td>
+                    <td th:text="${employee.phone}"></td>
+
+                </tr>
+            </th:block>
+
+        </table>
+
+
+    </div>
+    <footer id="footer-id">
+        <div class="contact">
+            <a href="https://www.facebook.com/trungnguyenlk16" class="fa fa-facebook contact-box"></a>
+            <a href="https://github.com/trunglk16" class="fa fa-github contact-box"></a>
+            <a href="https://plus.google.com/+TrungNguy%E1%BB%85nLk16" class="fa fa-google-plus contact-box"></a>
+            <a href="https://www.linkedin.com/in/trung-nguyen-50533b163/" class="fa fa-linkedin contact-box"></a>
+        </div>
+        <p>Project by &copy;<a href="">TrungNT</a></p>
+    </footer>
+</div>
+</body>
+</html>
